@@ -7,11 +7,11 @@
 #           or separate .conf files under jail.d/ directory, e.g.:
 #
 #
-# [DEFAULT]
+[DEFAULT]
 bantime = 1d
 
 #
-# [sshd]
+[sshd]
 enabled = true
 #
 # See jail.conf(5) man page for more information
