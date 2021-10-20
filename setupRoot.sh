@@ -7,11 +7,11 @@ if [[ $EUID -ne 0 ]]; then
 fi
 
 # mise à jour
-apt-get update 
-apt-get upgrade
+apt-get -y update 
+apt-get -y upgrade
 
 # Installation des logiciels
-apt-get install sudo apt-transport-https ca-certificates curl gnupg lsb-release fail2ban
+apt-get -y install sudo apt-transport-https ca-certificates curl gnupg lsb-release fail2ban
 
 # paramétrage sudo
 /sbin/adduser user sudo
