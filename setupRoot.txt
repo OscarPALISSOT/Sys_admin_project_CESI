@@ -1,13 +1,14 @@
 #!/bin/bash
 
-# mise à jour
-apt-get update
-
 # test si root
 if [[ $EUID -ne 0 ]]; then
    echo "This script must be run as root" 
    exit 1
 fi
+
+# mise à jour
+apt-get update 
+apt-get upgrade
 
 # Installation des logiciels
 apt-get install sudo apt-transport-https ca-certificates curl gnupg lsb-release fail2ban
@@ -16,7 +17,7 @@ apt-get install sudo apt-transport-https ca-certificates curl gnupg lsb-release 
 /sbin/adduser user sudo
 
 #Paramétrage Fail2Ban
-cp /etc/fail2ban/jail.{conf,local}
+wget https://raw.githubusercontent.com/OscarPALISSOT/projet-SI/main/jail.local -P /etc/fail2ban/
 
 
 # Installation certificats Docker
