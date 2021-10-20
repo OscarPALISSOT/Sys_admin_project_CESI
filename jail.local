@@ -6,22 +6,13 @@
 #           file, but provide customizations in jail.local file,
 #           or separate .conf files under jail.d/ directory, e.g.:
 #
-# HOW TO ACTIVATE JAILS:
-#
-# YOU SHOULD NOT MODIFY THIS FILE.
-#
-# It will probably be overwritten or improved in a distribution update.
-#
-# Provide customizations in a jail.local file or a jail.d/customisation.local.
-# For example to change the default bantime for all jails and to enable the
-# ssh-iptables jail the following (uncommented) would appear in the .local file.
-# See man 5 jail.conf for details.
 #
 # [DEFAULT]
-# bantime = 1h
+bantime = 1d
+
 #
 # [sshd]
-# enabled = true
+enabled = true
 #
 # See jail.conf(5) man page for more information
 
@@ -276,7 +267,7 @@ action = %(action_)s
 # To use more aggressive sshd modes set filter parameter "mode" in jail.local:
 # normal (default), ddos, extra or aggressive (combines all).
 # See "tests/files/logs/sshd" or "filter.d/sshd.conf" for usage example and details.
-#mode   = normal
+mode   = normal
 port    = ssh
 logpath = %(sshd_log)s
 backend = %(sshd_backend)s
