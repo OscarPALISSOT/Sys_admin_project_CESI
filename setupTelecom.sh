@@ -29,3 +29,6 @@ echo "LOCAL_GIT_REPOS=~/.docker/wazo_local" > ~/.docker/wazo-docker/.env
 
 # Lancement du Docker
 docker-compose -f ~/.docker/wazo-docker/docker-compose.yml up -d
+
+#Affichage de l'IP
+echo http://$(hostname -I | awk '{print $1}'):8443
