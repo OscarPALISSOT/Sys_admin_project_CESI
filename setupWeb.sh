@@ -1,5 +1,13 @@
 #!/bin/bash
 
+# test si root ou sudo
+if [[ $EUID -eq 0 ]]; then
+    echo "Lancement de l'installation du serveur Web"
+else
+    echo "Merci de lancer en root ou sudo."
+    exit 1
+fi
+
 # Création du dossier répertoire de nos Docker
 mkdir -p ~/.docker
 chmod 777 ~/.docker
