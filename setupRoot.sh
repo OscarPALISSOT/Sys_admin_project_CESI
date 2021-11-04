@@ -11,7 +11,7 @@ apt-get -y update
 apt-get -y upgrade
 
 # Installation des logiciels
-apt-get -y install sudo apt-transport-https ca-certificates curl gnupg lsb-release fail2ban
+apt-get -y install sudo apt-transport-https ca-certificates curl gnupg lsb-release fail2ban git
 
 # paramétrage sudo
 /sbin/adduser user sudo
