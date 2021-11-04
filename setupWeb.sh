@@ -2,6 +2,7 @@
 
 # Création du dossier répertoire de nos Docker
 mkdir -p ~/.docker
+chmod 777 ~/.docker
 
 # Copie du Site Web
 git -C ~/.docker clone https://github.com/KNFreed/PW-Docker-Web.git
