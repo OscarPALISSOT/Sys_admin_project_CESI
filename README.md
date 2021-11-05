@@ -9,4 +9,4 @@ setupTelecom
 `wget -q -O - https://raw.githubusercontent.com/OscarPALISSOT/projet-SI/main/setupTelecom.sh | sudo bash`
 
 setupVPN
-`wget -q -O - https://raw.githubusercontent.com/OscarPALISSOT/projet-SI/main/setupVPN.sh | sudo bash`
+`sudo su -c "bash <(wget -qO- https://raw.githubusercontent.com/OscarPALISSOT/projet-SI/main/setupVPN.sh)" root`
