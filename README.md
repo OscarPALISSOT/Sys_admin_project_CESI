@@ -10,3 +10,6 @@ setupTelecom
 
 setupVPN
 `sudo su -c "bash <(wget -qO- https://raw.githubusercontent.com/OscarPALISSOT/projet-SI/main/setupVPN.sh)" root`
+
+setupClientVPN
+`sudo su -c "bash <(wget -qO- https://raw.githubusercontent.com/OscarPALISSOT/projet-SI/main/setupClientVPN.sh)" root`
