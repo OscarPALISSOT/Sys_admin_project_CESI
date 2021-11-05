@@ -24,12 +24,11 @@ mkdir -p /etc/openvpn-conf
 #Configuration de l'openvpn
 docker run -v /etc/openvpn-conf:/etc/openvpn --rm docker-openvpn ovpn_genconfig -u udp://$(hostname -I | awk '{print $1}'):1194
 #Génération des certificats
-echo "$OVPN_CN"
 docker run -v /etc/openvpn-conf:/etc/openvpn --rm -i docker-openvpn easyrsa init-pki
 docker run -v /etc/openvpn-conf:/etc/openvpn --rm -i docker-openvpn easyrsa build-ca
 docker run -v /etc/openvpn-conf:/etc/openvpn --rm -i docker-openvpn easyrsa gen-dh
 docker run -v /etc/openvpn-conf:/etc/openvpn --rm -i docker-openvpn openvpn --genkey --secret /etc/openvpn/pki/ta.key
-docker run -v /etc/openvpn-conf:/etc/openvpn --rm -i docker-openvpn easyrsa build-server-full "SERVEURVPN" nopass
+docker run -v /etc/openvpn-conf:/etc/openvpn --rm -i docker-openvpn easyrsa build-server-full "$OVPN_CN" nopass
 docker run -v /etc/openvpn-conf:/etc/openvpn --rm -i docker-openvpn easyrsa gen-crl
 #Lancement du server
 docker run -v /etc/openvpn-conf:/etc/openvpn -d -p 1194:1194/udp --cap-add=NET_ADMIN docker-openvpn
