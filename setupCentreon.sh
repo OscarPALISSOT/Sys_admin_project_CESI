@@ -21,3 +21,11 @@ sed -i 's/VMware-vSphere-Perl-SDK-6.5.0-4566394.x86_64.tar.gz/VMware-vSphere-Per
 
 # Execution du script de run
 (cd ~/.docker/docker-centreon && ./run.sh)
+
+# Installation container db
+docker run -itd  -e MYSQL_ROOT_PASSWORD=secret  --name centreon-db  mariadb
+# ajout compte
+
+# modif cnf
+
+# subnetwork
