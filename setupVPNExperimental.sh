@@ -12,6 +12,9 @@ fi
 mkdir -p ~/.docker
 chmod 777 ~/.docker
 
+#Suppression des anciens certificats en cas de réinstallation
+rm -r /etc/openvpn/pki/*
+
 # Copie du service VPN
 git -C ~/.docker clone https://github.com/kylemanna/docker-openvpn.git
 
@@ -23,9 +26,6 @@ mkdir -p /etc/openvpn-conf
 
 #Configuration de l'openvpn
 docker run -v /etc/openvpn-conf:/etc/openvpn --rm docker-openvpn ovpn_genconfig -u udp://$(hostname -I | awk '{print $1}'):1194
-
-#Suppression des anciens certificats en cas de réinstallation
-rm -r /etc/openvpn/pki/*
 
 #Génération des certificats
 docker run -v /etc/openvpn-conf:/etc/openvpn --rm -i docker-openvpn easyrsa init-pki
