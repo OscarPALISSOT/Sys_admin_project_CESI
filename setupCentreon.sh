@@ -13,7 +13,7 @@ mkdir -p ~/.docker
 chmod 777 ~/.docker
 
 # Copie du service Centreon
-git --recurse-submodules -C ~/.docker clone https://github.com/EarthLab-Luxembourg/docker-centreon.git
+git -C ~/.docker clone --recurse-submodules https://github.com/EarthLab-Luxembourg/docker-centreon.git
 wget https://raw.githubusercontent.com/OscarPALISSOT/projet-SI/main/VMware-vSphere-Perl-SDK-7.0.0-16453907.x86_64.tar.gz -P ~/.docker/docker-centreon/buildenv/files/other/vmware
 sleep 5
 # Execution du script de build
