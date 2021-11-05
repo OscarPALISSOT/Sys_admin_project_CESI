@@ -43,5 +43,3 @@ $ForestConfiguration = @{
 
 Import-Module ADDSDeployment
 Install-ADDSForest @ForestConfiguration
-
-Restart-Computer
