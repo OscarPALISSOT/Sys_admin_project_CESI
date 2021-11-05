@@ -16,7 +16,7 @@ chmod 777 ~/.docker
 git -C ~/.docker clone https://github.com/kylemanna/docker-openvpn.git
 
 #Build de l'image
-docker build -t ~/.docker/docker-openvpn -f ~/.docker/docker-openvpn
+docker build -t docker-openvpn ~/.docker/docker-openvpn
 
 #Création de l'espace de stockage des données openvpn
 mkdir -p /etc/openvpn-conf
