@@ -12,7 +12,9 @@ read -p "Nombre d'utilisateurs à créer : " numberuser
 
 for ((i = 1; i <= numberuser; i++))
 do
+  # On crée le compte
   docker run -v /etc/openvpn-conf:/etc/openvpn --rm -it docker-openvpn easyrsa build-client-full "user$i" nopass
+  #On l'exporte au format ovpn
   docker run -v /etc/openvpn-conf:/etc/openvpn --rm docker-openvpn ovpn_getclient "user$i" > "user$i.ovpn"
 done
 
