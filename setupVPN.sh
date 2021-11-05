@@ -25,6 +25,6 @@ mkdir -p /etc/openvpn-conf
 docker run -v /etc/openvpn-conf:/etc/openvpn --rm docker-openvpn ovpn_genconfig -u udp://$(hostname -I | awk '{print $1}'):1194
 
 #Génération des certificats
-docker run -v $PWD/openvpn-etc:/etc/openvpn --rm -it server_vpn ovpn_initpki
+docker run -v /etc/openvpn-conf:/etc/openvpn --rm -it docker-openvpn ovpn_initpki
 #Lancement du server
 docker run -v /etc/openvpn-conf:/etc/openvpn -d -p 1194:1194/udp --cap-add=NET_ADMIN docker-openvpn
