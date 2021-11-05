@@ -7,3 +7,6 @@ setupWeb
 
 setupTelecom
 `wget -O - https://raw.githubusercontent.com/OscarPALISSOT/projet-SI/main/setupTelecom.sh | sudo bash`
+
+setupVPN
+`wget -O - https://raw.githubusercontent.com/OscarPALISSOT/projet-SI/main/setupVPN.sh | sudo bash`
