@@ -1,3 +1,4 @@
+<# creation du domain #>
 
 <# ajout de (AD-Domain-Services), le DNS (DNS) et les outils d'administration graphique (RSAT-AD-Tools) #>
 
@@ -21,3 +22,26 @@ Foreach($Feature in $FeatureList){
      }
    } # if(((Get-WindowsFeature -Name $Feature).InstallState) -eq "Available")
 } # Foreach($Feature in $FeatureList)
+
+<# creation domain #>
+
+$DomainNameDNS = "abstergo.local"
+$DomainNameNetbios = "ABSTERGO"
+
+$ForestConfiguration = @{
+'-DatabasePath'= 'C:\Windows\NTDS';
+'-DomainMode' = 'Default';
+'-DomainName' = $DomainNameDNS;
+'-DomainNetbiosName' = $DomainNameNetbios;
+'-ForestMode' = 'Default';
+'-InstallDns' = $true;
+'-LogPath' = 'C:\Windows\NTDS';
+'-NoRebootOnCompletion' = $false;
+'-SysvolPath' = 'C:\Windows\SYSVOL';
+'-Force' = $true;
+'-CreateDnsDelegation' = $false }
+
+Import-Module ADDSDeployment
+Install-ADDSForest @ForestConfiguration
+
+Restart-Computer
