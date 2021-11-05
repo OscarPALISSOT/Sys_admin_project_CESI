@@ -2,7 +2,7 @@
 
 # test si root ou sudo
 if [[ $EUID -eq 0 ]]; then
-    echo "Lancement de l'installation du serveur Web"
+    echo "Lancement de la création des comptes VPN"
 else
     echo "Merci de lancer en root ou sudo."
     exit 1
