@@ -19,4 +19,4 @@ git -C ~/.docker clone https://github.com/EarthLab-Luxembourg/docker-centreon.gi
 (cd ~/.docker/docker-centreon && ./build.sh)
 
 # Execution du script de run
-(cd ~/.docker/docker-centreon ; sh run.sh)
+(cd ~/.docker/docker-centreon && ./run.sh)
