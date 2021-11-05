@@ -16,7 +16,7 @@ chmod 777 ~/.docker
 git -C ~/.docker clone https://github.com/EarthLab-Luxembourg/docker-centreon.git
 
 # Execution du script de build
-(cd ~/.docker/docker-centreon ; ./build.sh)
+(cd ~/.docker/docker-centreon && ./build.sh)
 
 # Execution du script de run
 (cd ~/.docker/docker-centreon ; sh run.sh)
