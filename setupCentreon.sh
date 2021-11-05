@@ -13,7 +13,8 @@ mkdir -p ~/.docker
 chmod 777 ~/.docker
 
 # Copie du service Centreon
-git -C ~/.docker clone https://github.com/EarthLab-Luxembourg/docker-centreon.git
+git -C --recursive ~/.docker clone https://github.com/EarthLab-Luxembourg/docker-centreon.git
+wget 
 
 # Execution du script de build
 (cd ~/.docker/docker-centreon && ./build.sh)
