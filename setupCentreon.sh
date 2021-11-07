@@ -25,6 +25,7 @@ wget https://raw.githubusercontent.com/OscarPALISSOT/projet-SI/main/VMware-vSphe
 # Installation container db
 docker run -itd  -e MYSQL_ROOT_PASSWORD=secret  --name centreon-db  mariadb
 # ajout compte
+sleep 5
 docker exec -i centreon-db mysql -psecret mysql <<EOF
 CREATE USER 'admin'@'%' IDENTIFIED BY 'secret';
 GRANT ALL PRIVILEGES ON *.* TO 'admin'@'%' WITH GRANT OPTION;
