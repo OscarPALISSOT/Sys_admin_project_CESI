@@ -14,7 +14,7 @@ chmod 777 ~/.docker
 
 # Installation container db
 docker pull mariadb
-docker run -itd --net=bridge -e MYSQL_ROOT_PASSWORD=secret --name centreon-db mariadb
+docker run -d --net=bridge -e MYSQL_ROOT_PASSWORD=secret --name centreon-db mariadb
 # modif cnf
 docker exec -i centreon-db sed -i 's/\[client-server]/[client-server]\nbind-address 0.0.0.0/' /etc/mysql/my.cnf
 # ajout compte
