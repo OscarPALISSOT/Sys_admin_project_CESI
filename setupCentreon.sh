@@ -2,7 +2,7 @@
 
 # test si root ou sudo
 if [[ $EUID -eq 0 ]]; then
-    echo "Lancement de l'installation du serveur VPN"
+    echo "Lancement de l'installation du serveur de Supervision"
 else
     echo "Merci de lancer en root ou sudo."
     exit 1
@@ -25,7 +25,7 @@ wget https://raw.githubusercontent.com/OscarPALISSOT/projet-SI/main/VMware-vSphe
 # Installation container db
 docker run -itd  -e MYSQL_ROOT_PASSWORD=secret  --name centreon-db  mariadb
 # modif cnf
-sed -i 's/\[server-client]/[server-client]\nbind-address O.O.O.O' /etc/mysql/my.cnf
+docker exec -i centreon-db sed -i 's/\[server-client]/[server-client]\nbind-address O.O.O.O' /etc/mysql/my.cnf
 # ajout compte
 sleep 5
 docker exec -i centreon-db mysql -psecret mysql <<EOF
