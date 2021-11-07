@@ -9,10 +9,10 @@ New-ADOrganizationalUnit -Name "marketing"
 New-ADUser -Name "Maketing 1" -GivenName "Maketing" -Surname "1" -SamAccountName "Maketing1" -UserPrincipalName "Maketing1@abstergo.fr" -Path "OU=marketing,DC=abstergo,DC=local" -AccountPassword (ConvertTo-SecureString "P@ssw0rd" -AsPlainText -force) -Enabled $true -ChangePasswordAtLogon $true
 New-ADUser -Name "Maketing 2" -GivenName "Maketing" -Surname "2" -SamAccountName "Maketing2" -UserPrincipalName "Maketing2@abstergo.fr" -Path "OU=marketing,DC=abstergo,DC=local" -AccountPassword (ConvertTo-SecureString "P@ssw0rd" -AsPlainText -force) -Enabled $true -ChangePasswordAtLogon $true
 
-New-ADOrganizationalUnit -Name "com"
-New-ADUser -Name "Com 1" -GivenName "Com" -Surname "1" -SamAccountName "Com1" -UserPrincipalName "Com1@abstergo.fr" -Path "OU=com,DC=abstergo,DC=local" -AccountPassword (ConvertTo-SecureString "P@ssw0rd" -AsPlainText -force) -Enabled $true -ChangePasswordAtLogon $true
-New-ADUser -Name "Com 2" -GivenName "Com" -Surname "2" -SamAccountName "Com2" -UserPrincipalName "Com2@abstergo.fr" -Path "OU=com,DC=abstergo,DC=local" -AccountPassword (ConvertTo-SecureString "P@ssw0rd" -AsPlainText -force) -Enabled $true -ChangePasswordAtLogon $true
+New-ADOrganizationalUnit -Name "communication"
+New-ADUser -Name "Com 1" -GivenName "Com" -Surname "1" -SamAccountName "Com1" -UserPrincipalName "Com1@abstergo.local" -Path "OU=communication,DC=abstergo,DC=local" -AccountPassword (ConvertTo-SecureString "P@ssw0rd" -AsPlainText -force) -Enabled $true -ChangePasswordAtLogon $true
+New-ADUser -Name "Com 2" -GivenName "Com" -Surname "2" -SamAccountName "Com2" -UserPrincipalName "Com2@abstergo.local" -Path "OU=communication,DC=abstergo,DC=local" -AccountPassword (ConvertTo-SecureString "P@ssw0rd" -AsPlainText -force) -Enabled $true -ChangePasswordAtLogon $true
 
 New-ADOrganizationalUnit -Name "recherche"
-New-ADUser -Name "R&D 1" -GivenName "R&D" -Surname "1" -SamAccountName "R&D1" -UserPrincipalName "R&D1@abstergo.fr" -Path "OU=recherche,DC=abstergo,DC=local" -AccountPassword (ConvertTo-SecureString "P@ssw0rd" -AsPlainText -force) -Enabled $true -ChangePasswordAtLogon $true
-New-ADUser -Name "R&D 2" -GivenName "R&D" -Surname "2" -SamAccountName "R&D2" -UserPrincipalName "R&D2@abstergo.fr" -Path "OU=recherche,DC=abstergo,DC=local" -AccountPassword (ConvertTo-SecureString "P@ssw0rd" -AsPlainText -force) -Enabled $true -ChangePasswordAtLogon $true
+New-ADUser -Name "R&D 1" -GivenName "R&D" -Surname "1" -SamAccountName "R&D1" -UserPrincipalName "R&D1@abstergo.local" -Path "OU=recherche,DC=abstergo,DC=local" -AccountPassword (ConvertTo-SecureString "P@ssw0rd" -AsPlainText -force) -Enabled $true -ChangePasswordAtLogon $true
+New-ADUser -Name "R&D 2" -GivenName "R&D" -Surname "2" -SamAccountName "R&D2" -UserPrincipalName "R&D2@abstergo.local" -Path "OU=recherche,DC=abstergo,DC=local" -AccountPassword (ConvertTo-SecureString "P@ssw0rd" -AsPlainText -force) -Enabled $true -ChangePasswordAtLogon $true
