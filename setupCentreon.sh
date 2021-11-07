@@ -24,16 +24,19 @@ wget https://raw.githubusercontent.com/OscarPALISSOT/projet-SI/main/VMware-vSphe
 # Execution du script de run
 (cd ~/.docker/docker-centreon && ./run.sh)
 
+#Lien symbolique pour config centreon
+docker exec -i centreon mkdir /usr/lib/centreon/
+docker exec -i centreon ln -s /usr/lib/nagios/plugins/ /usr/lib/centreon/
+
 # Installation de la bdd
 docker-compose -f ~/.docker/docker-centreon/docker-compose.yml up -d
 
 # modif cnf
-docker exec -i centreon-db sed -i 's/\[client-server]/[client-server]\nbind-address=0.0.0.0/' /etc/mysql/my.cnf
+docker exec -i centreon-db sed -i 's/\[client-server]/[client-server]\n[mysqld]\nbind-address=0.0.0.0/' /etc/mysql/my.cnf
 # ajout compte
-sleep 5
 docker exec -i centreon-db mysql -psecret mysql <<EOF
-CREATE USER 'admin'@'%' IDENTIFIED BY 'secret';
-GRANT ALL PRIVILEGES ON *.* TO 'admin'@'%' WITH GRANT OPTION;
+CREATE USER 'centreon'@'%' IDENTIFIED BY 'secret';
+GRANT ALL PRIVILEGES ON *.* TO 'centreon'@'%' WITH GRANT OPTION;
 FLUSH PRIVILEGES;
 EOF
 
