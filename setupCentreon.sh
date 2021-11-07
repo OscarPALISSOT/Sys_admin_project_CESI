@@ -25,7 +25,11 @@ sed -i 's/VMware-vSphere-Perl-SDK-6.5.0-4566394.x86_64.tar.gz/VMware-vSphere-Per
 # Installation container db
 docker run -itd  -e MYSQL_ROOT_PASSWORD=secret  --name centreon-db  mariadb
 # ajout compte
-
+docker exec -i centreon-db mysql -u root -psecret <<EOF
+CREATE USER 'admin'@'%' IDENTIFIED BY 'secret';
+GRANT ALL PRIVILEGES ON *.* TO 'admin'@'%' WITH GRANT OPTION;
+FLUSH PRIVILEGES;
+EOF
 # modif cnf
-
+docker exec -it centreon-db sed -i 's/\[client-server]/[client-server]\nbind-address 0.0.0.0/' /etc/mysql/my.cnf
 # subnetwork
