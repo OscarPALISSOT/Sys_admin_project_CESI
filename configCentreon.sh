@@ -15,9 +15,6 @@ GRANT ALL PRIVILEGES ON *.* TO 'centreon'@'%' WITH GRANT OPTION;
 FLUSH PRIVILEGES;
 EOF
 
-# subnetwork
-docker network connect bridge centreon-db
-
 #Lien symbolique pour config centreon
 docker exec -i centreon mkdir /usr/lib/centreon/
 docker exec -i centreon ln -s /usr/lib/nagios/plugins/ /usr/lib/centreon/
