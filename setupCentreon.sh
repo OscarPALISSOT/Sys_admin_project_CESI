@@ -29,16 +29,3 @@ docker-compose -f ~/.docker/docker-centreon/docker-compose.yml up -d
 
 # modif cnf
 docker exec -i centreon-db sed -i 's/\[client-server]/[client-server]\n[mysqld]\nbind-address=0.0.0.0/' /etc/mysql/my.cnf
-# ajout compte
-docker exec -i centreon-db mysql -psecret mysql <<EOF
-CREATE USER 'centreon'@'%' IDENTIFIED BY 'secret';
-GRANT ALL PRIVILEGES ON *.* TO 'centreon'@'%' WITH GRANT OPTION;
-FLUSH PRIVILEGES;
-EOF
-
-# subnetwork
-docker network connect bridge centreon-db
-
-#Lien symbolique pour config centreon
-docker exec -i centreon mkdir /usr/lib/centreon/
-docker exec -i centreon ln -s /usr/lib/nagios/plugins/ /usr/lib/centreon/
