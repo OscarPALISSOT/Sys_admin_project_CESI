@@ -28,7 +28,7 @@ wget https://raw.githubusercontent.com/OscarPALISSOT/projet-SI/main/VMware-vSphe
 docker-compose -f ~/.docker/docker-centreon/docker-compose.yml up -d
 
 # modif cnf
-docker exec -i centreon-db sed -i 's/\[client-server]/[client-server]\nbind-address 0.0.0.0/' /etc/mysql/my.cnf
+docker exec -i centreon-db sed -i 's/\[client-server]/[client-server]\nbind-address=0.0.0.0/' /etc/mysql/my.cnf
 # ajout compte
 sleep 5
 docker exec -i centreon-db mysql -psecret mysql <<EOF
@@ -40,4 +40,3 @@ EOF
 # subnetwork
 docker network connect bridge centreon-db
 
-docker exec -i centreon-db cat /etc/mysql/my.cnf
