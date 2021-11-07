@@ -12,18 +12,7 @@ fi
 mkdir -p ~/.docker
 chmod 777 ~/.docker
 
-# Installation container db
-docker pull mariadb
-docker run -d --net=bridge -e MYSQL_ROOT_PASSWORD=secret --name centreon-db mariadb
-# modif cnf
-docker exec -i centreon-db sed -i 's/\[client-server]/[client-server]\nbind-address 0.0.0.0/' /etc/mysql/my.cnf
-# ajout compte
-sleep 5
-docker exec -i centreon-db mysql -psecret mysql <<EOF
-CREATE USER 'admin'@'%' IDENTIFIED BY 'secret';
-GRANT ALL PRIVILEGES ON *.* TO 'admin'@'%' WITH GRANT OPTION;
-FLUSH PRIVILEGES;
-EOF
+
 
 # Copie du service Centreon
 git -C ~/.docker clone --recurse-submodules https://github.com/KNFreed/docker-centreon.git
@@ -34,6 +23,14 @@ wget https://raw.githubusercontent.com/OscarPALISSOT/projet-SI/main/VMware-vSphe
 
 # Execution du script de run
 (cd ~/.docker/docker-centreon && ./run.sh)
-
+# modif cnf
+docker exec -i centreon-db sed -i 's/\[client-server]/[client-server]\nbind-address 0.0.0.0/' /etc/mysql/my.cnf
+# ajout compte
+sleep 5
+docker exec -i centreon-db mysql -psecret mysql <<EOF
+CREATE USER 'admin'@'%' IDENTIFIED BY 'secret';
+GRANT ALL PRIVILEGES ON *.* TO 'admin'@'%' WITH GRANT OPTION;
+FLUSH PRIVILEGES;
+EOF
 
 # subnetwork
