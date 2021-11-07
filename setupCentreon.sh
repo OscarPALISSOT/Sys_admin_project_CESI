@@ -25,7 +25,7 @@ wget https://raw.githubusercontent.com/OscarPALISSOT/projet-SI/main/VMware-vSphe
 (cd ~/.docker/docker-centreon && ./run.sh)
 
 # Installation de la bdd
-docker-compose -f /.docker/docker-centreon/docker-compose.yml up -d
+docker-compose -f ~/.docker/docker-centreon/docker-compose.yml up -d
 
 # modif cnf
 docker exec -i centreon-db sed -i 's/\[client-server]/[client-server]\nbind-address 0.0.0.0/' /etc/mysql/my.cnf
