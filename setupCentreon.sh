@@ -15,7 +15,7 @@ chmod 777 ~/.docker
 # Installation container db
 docker run -itd --net=bridge -e MYSQL_ROOT_PASSWORD=secret  --name centreon-db  mariadb
 # modif cnf
-docker exec -i centreon-db sed -i 's/\[server-client]/[server-client]\nbind-address O.O.O.O/' /etc/mysql/my.cnf
+docker exec -i centreon-db sed -i 's/\[server-client]/[server-client]\nbind-address 0.0.0.0/' /etc/mysql/my.cnf
 # ajout compte
 sleep 5
 docker exec -i centreon-db mysql -psecret mysql <<EOF
@@ -33,5 +33,6 @@ wget https://raw.githubusercontent.com/OscarPALISSOT/projet-SI/main/VMware-vSphe
 
 # Execution du script de run
 (cd ~/.docker/docker-centreon && ./run.sh)
+
 
 # subnetwork
