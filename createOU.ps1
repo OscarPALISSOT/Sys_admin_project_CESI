@@ -6,8 +6,8 @@ New-ADUser -Name "Compta 1" -GivenName "Compta" -Surname "1" -SamAccountName "Co
 New-ADUser -Name "Compta 2" -GivenName "Compta" -Surname "2" -SamAccountName "Compta2" -UserPrincipalName "Compta2@abstergo.fr" -Path "OU=compta,DC=abstergo,DC=local" -AccountPassword (ConvertTo-SecureString "P@ssw0rd" -AsPlainText -force) -Enabled $true -ChangePasswordAtLogon $true
 
 New-ADOrganizationalUnit -Name "marketing"
-New-ADUser -Name "Maketing 1" -GivenName "Maketing" -Surname "1" -SamAccountName "Maketing1" -UserPrincipalName "Maketing1@abstergo.fr" -Path "OU=marketing,DC=abstergo,DC=local" -AccountPassword (ConvertTo-SecureString "P@ssw0rd" -AsPlainText -force) -Enabled $true -ChangePasswordAtLogon $true
-New-ADUser -Name "Maketing 2" -GivenName "Maketing" -Surname "2" -SamAccountName "Maketing2" -UserPrincipalName "Maketing2@abstergo.fr" -Path "OU=marketing,DC=abstergo,DC=local" -AccountPassword (ConvertTo-SecureString "P@ssw0rd" -AsPlainText -force) -Enabled $true -ChangePasswordAtLogon $true
+New-ADUser -Name "Marketing 1" -GivenName "Marketing" -Surname "1" -SamAccountName "Marketing1" -UserPrincipalName "Marketing1@abstergo.fr" -Path "OU=marketing,DC=abstergo,DC=local" -AccountPassword (ConvertTo-SecureString "P@ssw0rd" -AsPlainText -force) -Enabled $true -ChangePasswordAtLogon $true
+New-ADUser -Name "Marketing 2" -GivenName "Marketing" -Surname "2" -SamAccountName "Marketing2" -UserPrincipalName "Marketing2@abstergo.fr" -Path "OU=marketing,DC=abstergo,DC=local" -AccountPassword (ConvertTo-SecureString "P@ssw0rd" -AsPlainText -force) -Enabled $true -ChangePasswordAtLogon $true
 
 New-ADOrganizationalUnit -Name "communication"
 New-ADUser -Name "Com 1" -GivenName "Com" -Surname "1" -SamAccountName "Com1" -UserPrincipalName "Com1@abstergo.local" -Path "OU=communication,DC=abstergo,DC=local" -AccountPassword (ConvertTo-SecureString "P@ssw0rd" -AsPlainText -force) -Enabled $true -ChangePasswordAtLogon $true
