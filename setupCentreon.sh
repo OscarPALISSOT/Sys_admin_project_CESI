@@ -24,10 +24,6 @@ wget https://raw.githubusercontent.com/OscarPALISSOT/projet-SI/main/VMware-vSphe
 # Execution du script de run
 (cd ~/.docker/docker-centreon && ./run.sh)
 
-#Lien symbolique pour config centreon
-docker exec -i centreon mkdir /usr/lib/centreon/
-docker exec -i centreon ln -s /usr/lib/nagios/plugins/ /usr/lib/centreon/
-
 # Installation de la bdd
 docker-compose -f ~/.docker/docker-centreon/docker-compose.yml up -d
 
@@ -43,3 +39,6 @@ EOF
 # subnetwork
 docker network connect bridge centreon-db
 
+#Lien symbolique pour config centreon
+docker exec -i centreon mkdir /usr/lib/centreon/
+docker exec -i centreon ln -s /usr/lib/nagios/plugins/ /usr/lib/centreon/
