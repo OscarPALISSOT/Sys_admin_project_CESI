@@ -23,7 +23,7 @@ wget https://raw.githubusercontent.com/OscarPALISSOT/projet-SI/main/VMware-vSphe
 
 # Execution du script de run
 (cd ~/.docker/docker-centreon && ./run.sh)
-docker run -itd -e MYSQL_ROOT_PASSWORD=secret --name centreon-db mariadb
+docker run -it -d -p 3301:3306 -e MYSQL_ROOT_PASSWORD=secret --name centreon-db mariadb && docker start centreon-db
 # modif cnf
 docker exec -i centreon-db sed -i 's/\[client-server]/[client-server]\nbind-address 0.0.0.0/' /etc/mysql/my.cnf
 # ajout compte
