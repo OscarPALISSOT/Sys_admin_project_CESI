@@ -1,2 +1,6 @@
 New-GPO -Name "abstergoGPO" -Comment "GPO par défaut"
+New-GPLink -Name "abstergoGPO" -Target "ou=communication,dc=abstergo,dc=local"
 New-GPLink -Name "abstergoGPO" -Target "ou=compta,dc=abstergo,dc=local"
+New-GPLink -Name "abstergoGPO" -Target "ou=direction,dc=abstergo,dc=local"
+New-GPLink -Name "abstergoGPO" -Target "ou=marketing,dc=abstergo,dc=local"
+New-GPLink -Name "abstergoGPO" -Target "ou=recherche,dc=abstergo,dc=local"
