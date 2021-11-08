@@ -1,7 +1,7 @@
 <# creation du domain #>
 
-<# ajout de DNS et (AD-Domain-Services) #>
-Install-WindowsFeature DNS
+<# ajout de AD-Domain-Services #>
+
 Install-WindowsFeature AD-Domain-Services -IncludeManagementTools
 
 <# creation domain #>
