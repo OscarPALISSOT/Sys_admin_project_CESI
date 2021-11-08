@@ -10,7 +10,7 @@ class User {
 
 function CreateUser {
     $NewUser = [User]::new()
-    $NewUser.GivenName = Read-Host "Entrez le prénom "
+    $NewUser.GivenName = Read-Host "Entrez le prenom "
     $NewUser.SurName = Read-Host "Entrez le nom "
     $NewUser.AccountPassword = Read-Host "Entrez le mot de passe "
     $NewUser.Name = $NewUser.GivenName + " " + $NewUser.SurName
@@ -25,7 +25,7 @@ function CreateUser {
      -SamAccountName $NewUser.SamAccountName `
      -UserPrincipalName $NewUser.UserPrincipalName `
      -Path $NewUser.OU + ",DC=abstergo,DC=local" `
-     -AccountPassword (ConvertTo-SecureString $NewUser.AccountPassword -AsPlainText -force) `
+     -AccountPassword(Read-Host -AsSecureString "Entrez le mot de passe") `
      -Enabled $true `
      -ChangePasswordAtLogon $true
 }
