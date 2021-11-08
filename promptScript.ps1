@@ -43,6 +43,27 @@ function RemoveOU {
     Remove-ADOrganizationalUnit -Identity ("OU=" + $OuName + ",DC=abstergo,DC=local") -Recursive
 }
 
+function Creategroup {
+    $Groupname = Read-Host "entrer le nom du groupe"
+    New-ADGroup $Groupname -Path ("OU="+$Groupname+",DC=abstergo,dc=local") -GroupScope Global
+}
+
+function RemoveGroup {
+    $Groupname = Read-Host "entrer le nom du groupe"
+    Remove-ADGroup -Identity $Groupname
+}
+
+function AddToGroup {
+    $Groupname = Read-Host "Entrez le nom du groupe "
+    $User = Read-Host "Entrez l'utilisateur a ajouter"
+    Add-AdGroupMember -Identity $Groupname -Members $User
+}
+
+function RemoveToGroup {
+    $Groupname = Read-Host "Entrez le nom du groupe "
+    $User = Read-Host "Entrez l'utilisateur a ajouter"
+    Remove-ADGroupMember -Identity $Groupname -Members $User
+}
 
 Write-Output "Que voulez vous faire ?"
 Write-Output "1 : Creer un utilisateur"
@@ -59,13 +80,13 @@ $choice = Read-Host "Votre choix "
 switch ( $choice )
 {
     1 { CreateUser }
-    2 {   CreateOU }
-    3 {  Write-Output "test"}
-    4 { Write-Output "test"  }
+    2 { CreateOU }
+    3 { Creategroup }
+    4 { AddToGroup }
     5 { RemoveUser }
-    6 {  RemoveOU }
-    7 {  Write-Output "test" }
-    8 { Write-Output "test" }
+    6 { RemoveOU }
+    7 { RemoveGroup }
+    8 { RemoveToGroup }
 }
 
 
