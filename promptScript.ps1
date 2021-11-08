@@ -45,7 +45,7 @@ function RemoveOU {
 
 function Creategroup {
     $Groupname = Read-Host "entrer le nom du groupe"
-    New-ADGroup $Groupname -Path ("OU="+$Groupname+",DC=abstergo,dc=local") -GroupScope Global
+    New-ADGroup $Groupname -Path ("OU=" + $Groupname + ",DC=abstergo,dc=local") -GroupScope Global
 }
 
 function RemoveGroup {
