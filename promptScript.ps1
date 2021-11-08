@@ -22,26 +22,12 @@ function CreateUser {
      -Surname $NewUser.SurName `
      -SamAccountName $NewUser.SamAccountName `
      -UserPrincipalName $NewUser.UserPrincipalName `
-     -Path $NewUser.OU + ",DC=abstergo,DC=local" `
+     -Path "DC=" + $NewUser.OU + ",DC=abstergo,DC=local" `
      -AccountPassword(Read-Host -AsSecureString "Entrez le mot de passe") `
      -Enabled $true `
      -ChangePasswordAtLogon $true
 }
 
-function testUser {
-    $NewUser = [User]::new()
-    $NewUser.GivenName = Read-Host "Entrez le prenom "
-    $NewUser.SurName = Read-Host "Entrez le nom "
-    $NewUser.Name = $NewUser.GivenName + " " + $NewUser.SurName
-    $NewUser.SamAccountName = $NewUser.GivenName + $NewUser.SurName
-    $NewUser.UserPrincipalName = $NewUser.SamAccountName + "@abstergo.local"
-    Get-ADOrganizationalUnit -Filter * | Format-Table Name
-    $NewUser.OU = Read-Host "Entrez une OU "
-    Write-Output $NewUser.Name
-    Write-Output $NewUser.SamAccountName
-    Write-Output $NewUser.UserPrincipalName
-    Write-Output $NewUser.OU
-}
 
 
 Write-Output "Que voulez vous faire ?"
@@ -59,7 +45,7 @@ $choice = Read-Host "Votre choix "
 switch ( $choice )
 {
     1 {   CreateUser  }
-    2 {   testUser }
+    2 {   Write-Output "test" }
     3 {  Write-Output "test"}
     4 { Write-Output "test"  }
     5 {   Write-Output "test"  }
