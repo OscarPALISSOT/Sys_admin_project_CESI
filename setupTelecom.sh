@@ -15,7 +15,7 @@ chmod 777 ~/.docker
 # Copie du service Telecom
 git -C ~/.docker clone https://github.com/wazo-platform/wazo-docker.git
 
-#Copie des images locales du service telecom
+# Copie des images locales du service telecom
 mkdir -p ~/.docker/wazo_local
 chmod 777 ~/.docker/wazo_local
 
@@ -24,11 +24,11 @@ git -C ~/.docker/wazo_local clone https://github.com/wazo-platform/wazo-auth.git
 git -C ~/.docker/wazo_local clone https://github.com/wazo-platform/wazo-auth-keys.git
 git -C ~/.docker/wazo_local clone https://github.com/wazo-platform/xivo-manage-db.git
 
-#Création de l'environnement
+# Création de l'environnement
 echo "LOCAL_GIT_REPOS=~/.docker/wazo_local" > ~/.docker/wazo-docker/.env
 
 # Lancement du Docker
 docker-compose -f ~/.docker/wazo-docker/docker-compose.yml up -d
 
-#Affichage de l'IP
+# Affichage de l'IP
 echo http://$(hostname -I | awk '{print $1}'):8443
