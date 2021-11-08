@@ -22,7 +22,7 @@ function CreateUser {
      -Surname $NewUser.SurName `
      -SamAccountName $NewUser.SamAccountName `
      -UserPrincipalName $NewUser.UserPrincipalName `
-     -Path "OU=" + $NewUser.OU + ",DC=abstergo,DC=local" `
+     -Path ("OU=" + $NewUser.OU + ",DC=abstergo,DC=local") `
      -AccountPassword(Read-Host -AsSecureString "Entrez le mot de passe") `
      -Enabled $true `
      -ChangePasswordAtLogon $true
