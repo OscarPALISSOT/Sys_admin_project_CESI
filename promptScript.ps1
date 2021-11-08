@@ -1,8 +1,8 @@
 
 Write-Output "Que voulez vous faire ?"
-Write-Output "1 : Créer un utilisateur"
-Write-Output "2 : Créer une unité d'organisation"
-Write-Output "3 : Créer un groupe"
+Write-Output "1 : Creer un utilisateur"
+Write-Output "2 : Creer une unite d'organisation"
+Write-Output "3 : Creer un groupe"
 Write-Output "4 : ajouter un utilisateur dans un groupe"
 Write-Output "5 : Supprimer un utilisateur"
 Write-Output "6 : Supprimer une unité d'organisation"
