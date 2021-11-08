@@ -7,4 +7,4 @@ Add-DnsServerResourceRecordA -Name ipbx -ZoneName abstergo.local -IPv4Address 19
 Add-DnsServerResourceRecordA -Name fallback -ZoneName abstergo.local -IPv4Address 192.168.106.6
 
 <# intranet #>
-Add-DnsServerResourceRecordA -Name fallback -ZoneName abstergo.local -IPv4Address 192.168.105.11
+Add-DnsServerResourceRecordA -Name www -ZoneName abstergo.local -IPv4Address 192.168.105.11
