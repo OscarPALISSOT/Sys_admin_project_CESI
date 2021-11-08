@@ -29,7 +29,8 @@ function CreateUser {
 }
 
 function RemoveUser {
-    Remove-ADUser -Identity Read-Host "Entrez l'utlisateur à supprimer' "
+    $user = Read-Host "Entrez l'utlisateur a supprimer "
+    Remove-ADUser -Identity $user
 }
 
 Write-Output "Que voulez vous faire ?"
