@@ -28,7 +28,11 @@ function CreateUser {
      -ChangePasswordAtLogon $true
 }
 
-
+function RemoveUser {
+    $recherche = Read-Host "Entrez le prenom "
+    Get-ADUSer -Filter ('SamAccountName -like "*' + $recherche + '"') | Format-Table SamAccountName
+    <# Remove-ADUser -Identity GlenJohn #>
+}
 
 Write-Output "Que voulez vous faire ?"
 Write-Output "1 : Creer un utilisateur"
@@ -45,7 +49,7 @@ $choice = Read-Host "Votre choix "
 switch ( $choice )
 {
     1 {   CreateUser  }
-    2 {   Write-Output "test" }
+    2 {   RemoveUser }
     3 {  Write-Output "test"}
     4 { Write-Output "test"  }
     5 {   Write-Output "test"  }
