@@ -33,6 +33,17 @@ function RemoveUser {
     Remove-ADUser -Identity $user
 }
 
+function CreateOU {
+    $OuName = Read-Host "Entrez le nom de l'ou"
+    New-ADOrganizationalUnit -Name $OuName -Path "DC=abstergo,DC=local"
+}
+
+function RemoveOU {
+    $OuName = Read-Host "Entrez le nom de l'ou"
+    Remove-ADOrganizationalUnit -Identity "OU=" + $OuName + ",DC=FABRIKAM,DC=COM" -Recursive
+}
+
+
 Write-Output "Que voulez vous faire ?"
 Write-Output "1 : Creer un utilisateur"
 Write-Output "2 : Creer une unite d'organisation"
@@ -48,7 +59,7 @@ $choice = Read-Host "Votre choix "
 switch ( $choice )
 {
     1 { CreateUser }
-    2 {   Write-Output "test" }
+    2 {   CreateOU }
     3 {  Write-Output "test"}
     4 { Write-Output "test"  }
     5 { RemoveUser }
