@@ -29,7 +29,7 @@ function CreateUser {
 }
 
 function RemoveUser {
-    $recherche = Read-Host "Entrez le prenom "
+    $recherche = Read-Host "Recherchez l'utilisateur "
     Get-ADUSer -Filter ('SamAccountName -like "*' + $recherche + '"') | Format-Table SamAccountName
     <# Remove-ADUser -Identity GlenJohn #>
 }
@@ -48,11 +48,11 @@ $choice = Read-Host "Votre choix "
 
 switch ( $choice )
 {
-    1 {   CreateUser  }
-    2 {   RemoveUser }
+    1 { CreateUser }
+    2 {   Write-Output "test" }
     3 {  Write-Output "test"}
     4 { Write-Output "test"  }
-    5 {   Write-Output "test"  }
+    5 { RemoveUser }
     6 {  Write-Output "test" }
     7 {  Write-Output "test" }
     8 { Write-Output "test" }
