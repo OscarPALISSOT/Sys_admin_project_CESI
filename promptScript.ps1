@@ -1,7 +1,6 @@
 class User {
     [string]$GivenName
     [string]$SurName
-    [string]$AccountPassword
     [string]$Name
     [string]$SamAccountName
     [string]$UserPrincipalName
@@ -12,7 +11,6 @@ function CreateUser {
     $NewUser = [User]::new()
     $NewUser.GivenName = Read-Host "Entrez le prenom "
     $NewUser.SurName = Read-Host "Entrez le nom "
-    $NewUser.AccountPassword = Read-Host "Entrez le mot de passe "
     $NewUser.Name = $NewUser.GivenName + " " + $NewUser.SurName
     $NewUser.SamAccountName = $NewUser.GivenName + $NewUser.SurName
     $NewUser.UserPrincipalName = $NewUser.SamAccountName + "@abstergo.local"
@@ -28,6 +26,21 @@ function CreateUser {
      -AccountPassword(Read-Host -AsSecureString "Entrez le mot de passe") `
      -Enabled $true `
      -ChangePasswordAtLogon $true
+}
+
+function testUser {
+    $NewUser = [User]::new()
+    $NewUser.GivenName = Read-Host "Entrez le prenom "
+    $NewUser.SurName = Read-Host "Entrez le nom "
+    $NewUser.Name = $NewUser.GivenName + " " + $NewUser.SurName
+    $NewUser.SamAccountName = $NewUser.GivenName + $NewUser.SurName
+    $NewUser.UserPrincipalName = $NewUser.SamAccountName + "@abstergo.local"
+    Get-ADOrganizationalUnit -Filter * | Format-Table Name
+    $NewUser.OU = Read-Host "Entrez une OU "
+    Write-Output $NewUser.Name
+    Write-Output $NewUser.SamAccountName
+    Write-Output $NewUser.UserPrincipalName
+    Write-Output $NewUser.OU
 }
 
 
@@ -46,7 +59,7 @@ $choice = Read-Host "Votre choix "
 switch ( $choice )
 {
     1 {   CreateUser  }
-    2 {   Write-Output "test2" }
+    2 {   testUser }
     3 {  Write-Output "test"}
     4 { Write-Output "test"  }
     5 {   Write-Output "test"  }
