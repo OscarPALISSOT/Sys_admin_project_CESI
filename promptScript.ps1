@@ -9,7 +9,19 @@ Write-Output "6 : Supprimer une unité d'organisation"
 Write-Output "7 : Supprimer un groupe"
 Write-Output "8 : Supprimer un utilisateur dans un groupe"
 
-<# $choice = Read-Host "Votre choix : " #>
+$choice = Read-Host "Votre choix : "
+
+switch ( $choice )
+{
+    1 {   Write-Output "test 1"  }
+    2 {   Write-Output "test2" }
+    3 {  Write-Output "test"}
+    4 { Write-Output "test"  }
+    5 {   Write-Output "test"  }
+    6 {  Write-Output "test" }
+    7 {  Write-Output "test" }
+    8 { Write-Output "test" }
+}
 
 class User {
     [string]$GivenName
