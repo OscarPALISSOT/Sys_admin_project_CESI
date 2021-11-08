@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# test si root ou sudo
+# Test si root ou sudo
 if [[ $EUID -eq 0 ]]; then
     echo "Lancement de l'installation du serveur Web"
 else

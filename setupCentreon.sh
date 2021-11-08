@@ -12,8 +12,6 @@ fi
 mkdir -p ~/.docker
 chmod 777 ~/.docker
 
-
-
 # Copie du service Centreon
 git -C ~/.docker clone --recurse-submodules https://github.com/KNFreed/docker-centreon.git
 wget https://raw.githubusercontent.com/OscarPALISSOT/projet-SI/main/VMware-vSphere-Perl-SDK-6.5.0-4566394.x86_64.tar.gz -P ~/.docker/docker-centreon/buildenv/files/other/vmware
@@ -27,5 +25,5 @@ wget https://raw.githubusercontent.com/OscarPALISSOT/projet-SI/main/VMware-vSphe
 # Installation de la bdd
 docker-compose -f ~/.docker/docker-centreon/docker-compose.yml up -d
 
-#Affichage de l'IP
+# Affichage de l'IP
 echo http://$(hostname -I | awk '{print $1}'):8080
