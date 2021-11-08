@@ -63,7 +63,7 @@ function AddToGroup {
 
 function RemoveToGroup {
     $Groupname = Read-Host "Entrez le nom du groupe "
-    $User = Read-Host "Entrez l'utilisateur a ajouter"
+    $User = Read-Host "Entrez l'utilisateur a supprimer"
     Remove-ADGroupMember -Identity $Groupname -Members $User
 }
 
