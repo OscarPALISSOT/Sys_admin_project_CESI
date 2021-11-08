@@ -44,12 +44,14 @@ function RemoveOU {
 }
 
 function Creategroup {
-    $Groupname = Read-Host "entrer le nom du groupe"
-    New-ADGroup $Groupname -Path ("OU=" + $Groupname + ",DC=abstergo,dc=local") -GroupScope Global
+    $Groupname = Read-Host "Entrez le nom du groupe"
+    Get-ADOrganizationalUnit -Filter 'Name -like "*"' | Format-Table Name
+    $Ou = Read-Host "Dans quelle OU voulez vous creer le groupe ?"
+    New-ADGroup $Groupname -Path ("OU=" + $Ou + ",DC=abstergo,dc=local") -GroupScope Global
 }
 
 function RemoveGroup {
-    $Groupname = Read-Host "entrer le nom du groupe"
+    $Groupname = Read-Host "EntreZ le nom du groupe"
     Remove-ADGroup -Identity $Groupname
 }
 
@@ -71,7 +73,7 @@ Write-Output "2 : Creer une unite d'organisation"
 Write-Output "3 : Creer un groupe"
 Write-Output "4 : ajouter un utilisateur dans un groupe"
 Write-Output "5 : Supprimer un utilisateur"
-Write-Output "6 : Supprimer une unité d'organisation"
+Write-Output "6 : Supprimer une unite d'organisation"
 Write-Output "7 : Supprimer un groupe"
 Write-Output "8 : Supprimer un utilisateur dans un groupe"
 
