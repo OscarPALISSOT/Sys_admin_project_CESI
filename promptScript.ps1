@@ -30,7 +30,7 @@ function CreateUser {
 
 function RemoveUser {
     $recherche = Read-Host "Recherchez l'utilisateur "
-    Get-ADUSer -Filter ('SamAccountName -like "*' + $recherche + '"') | Format-Table SamAccountName
+    Get-ADUSer -Filter {SamAccountName -like '*' + $recherche + '*'} | Format-Table SamAccountName
     <# Remove-ADUser -Identity GlenJohn #>
 }
 
