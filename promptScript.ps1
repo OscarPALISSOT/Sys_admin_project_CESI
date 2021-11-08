@@ -35,12 +35,12 @@ function RemoveUser {
 
 function CreateOU {
     $OuName = Read-Host "Entrez le nom de l'ou"
-    New-ADOrganizationalUnit -Name $OuName -Path "DC=abstergo,DC=local"
+    New-ADOrganizationalUnit -Name $OuName -Path "DC=abstergo,DC=local" -ProtectedFromAccidentalDeletion $False
 }
 
 function RemoveOU {
     $OuName = Read-Host "Entrez le nom de l'ou"
-    Remove-ADOrganizationalUnit -Identity "OU=" + $OuName + ",DC=FABRIKAM,DC=COM" -Recursive
+    Remove-ADOrganizationalUnit -Identity ("OU=" + $OuName + ",DC=abstergo,DC=local") -Recursive
 }
 
 
@@ -63,7 +63,7 @@ switch ( $choice )
     3 {  Write-Output "test"}
     4 { Write-Output "test"  }
     5 { RemoveUser }
-    6 {  Write-Output "test" }
+    6 {  RemoveOU }
     7 {  Write-Output "test" }
     8 { Write-Output "test" }
 }
