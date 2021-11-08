@@ -45,7 +45,7 @@ $choice = Read-Host "Votre choix "
 
 switch ( $choice )
 {
-    1 {   Get-CreateUser  }
+    1 {   CreateUser  }
     2 {   Write-Output "test2" }
     3 {  Write-Output "test"}
     4 { Write-Output "test"  }
