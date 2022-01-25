@@ -1,4 +1,4 @@
-# projet-SI
+# projet-SI CESI A3
 setupRoot
 `wget -qO- https://raw.githubusercontent.com/OscarPALISSOT/projet-SI/main/setupRoot.sh | bash`
 
